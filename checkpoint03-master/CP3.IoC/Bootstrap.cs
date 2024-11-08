@@ -13,15 +13,15 @@ namespace CP3.IoC
     {
         public static void Start(IServiceCollection services, IConfiguration configuration)
         {
-            // Configuração do banco de dados com a string de conexão
+            
             services.AddDbContext<ApplicationContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
-            // Registro de repositórios e serviços
+            
             services.AddScoped<IBarcoRepository, BarcoRepository>();
             services.AddScoped<IBarcoService, BarcoService>();
 
-            // Adicione outros serviços ou repositórios aqui, se necessário
+            
         }
     }
 }
